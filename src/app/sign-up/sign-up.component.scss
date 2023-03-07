@@ -1,0 +1,14 @@
+@import "src/assets/style/variables";
+
+.sign_up__form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  gap: 10px;
+  align-items: center;
+  background-image: url("../../duck.gif");
+  background-position: center;
+  padding: 60px;
+
+  min-width: 400px;
+}

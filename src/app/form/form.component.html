@@ -1,0 +1,22 @@
+<div class="">
+  <form id="point_form" class="container_centered" [formGroup]="form">
+    <div class="change">
+      <label>X: {{xControl().value}}<br></label>
+      <p-spinner [min]="-2" [max]="2" [step]="0.5" formControlName="x" (input)="onChangeX()"></p-spinner>
+      <p class="errors" id="err_x"></p>
+    </div>
+    <div class="change">
+      <label>Y: {{yControl().value}}<br></label>
+      <p-slider [min]="-5" [max]="5" [step]="0.01" formControlName="y"></p-slider>
+    </div>
+    <div class="change">
+      <label>R: {{rControl().value}}<br></label>
+      <p-spinner (input)="onChangeR()" (onChange)="changeR()" [min]="-2" [max]="2" [step]="0.5" formControlName="r"></p-spinner>
+      <p class="errors" id="err_r"></p>
+    </div>
+    <div class="button_container" id="but">
+      <p-button aria-disabled="false" [disabled]="form.invalid" (onClick)="submit()" label="Отправить" styleClass="ui-button"></p-button>
+      <p-button (onClick)="delete()" label="Очистить" styleClass="ui-button"></p-button>
+    </div>
+  </form>
+</div>

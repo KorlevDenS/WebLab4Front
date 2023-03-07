@@ -1,0 +1,24 @@
+<div class="container_centered">
+  <form class="login__form shadowing" [formGroup]="loginForm">
+    <h2>Вход</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Логин</mat-label>
+      <input matInput placeholder="Логин" formControlName="username" required>
+      <mat-error *ngIf="usernameControl().invalid && (usernameControl().dirty || usernameControl().touched)">
+        Не может быть пустым
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Пароль</mat-label>
+      <input matInput type="password" placeholder="Пароль" formControlName="password" required>
+      <mat-error *ngIf="passwordControl().invalid && (passwordControl().dirty || passwordControl().touched)">
+        Не может быть пустым
+      </mat-error>
+    </mat-form-field>
+    <a href="/sign-up">Еще нет аккаунта? <u>Зарегистрируйтесь</u></a>
+
+    <p-button [disabled]="!loginForm.valid" (onClick)="sendForm()" label="Войти" styleClass="ui-button"></p-button>
+  </form>
+</div>

@@ -1,0 +1,38 @@
+<div class="container_centered">
+
+  <form class="sign_up__form shadowing" [formGroup]="signUpForm">
+
+    <h2>Регистрация</h2>
+    <mat-form-field appearance="fill">
+      <mat-label>Логин</mat-label>
+      <input matInput placeholder="Логин" formControlName="username" required>
+      <mat-error *ngIf="usernameControl().invalid">
+        Не может быть пустым
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Пароль</mat-label>
+      <input matInput placeholder="Пароль" type="password" formControlName="password" required>
+      <mat-error *ngIf="passwordControl().invalid">
+        Пароль не менее 8 символов
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Повторите пароль</mat-label>
+      <input matInput placeholder="Пароль" type="password" formControlName="passwordRepeat" required>
+      <mat-error *ngIf="!isPasswordRepeated()">
+        Пароли не совпадают
+      </mat-error>
+    </mat-form-field>
+    <a href="/login">Уже есть аккаунт? <u>Войдите</u></a>
+
+    <p-button [disabled]="!signUpForm.valid || !isPasswordRepeated()"
+              (onClick)="sendForm()"
+              label="Зарегистрироваться"
+              styleClass="ui-button">
+    </p-button>
+  </form>
+</div>
